@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form with Video</title>
+<link rel="stylesheet" href="vemo.css">
+<script>
+// Function to change the color of the h1 element
+function changeColor() {
+    // Get the h1 element
+    var h1Element = document.getElementById("changingH1");
+    
+    // Generate a random color
+    var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    
+    // Update the color of the h1 element
+    h1Element.style.color = randomColor;
+}
+
+// Function to change the color continuously
+function startColorChange() {
+    // Change the color initially
+    changeColor();
+    
+    // Set an interval to change the color every 2 seconds (2000 milliseconds)
+    setInterval(changeColor, 2000);
+}
+
+function submitForm() {
+    // Get the form element
+    var form = document.getElementById("myForm");
+
+    // Submit the form
+    form.submit();
+
+    // Navigate to a new page
+    window.location.href = "index.html";
+}
+</script>
+</head>
+<body onload="startColorChange()">
+
+<h1 id="changingH1">VEMO</h1>
+
+<h4 style="color: red;">turning dreams to reality</h4>
+
+<div class="video-container">
+    <video width="940" height="360" autoplay loop muted>
+        <source src="moneyvid.mp4" type="video/mp4">
+    </video>
+</div>
+
+<form id="myForm" action="new-page.html" method="post">
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" id="email" name="email" required></td>
+        </tr>
+        <tr>
+            <td><label for="phone">Phone No:</label></td>
+            <td><input type="tel" id="phone" name="phone" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><input type="button" value="Submit" onclick="submitForm()"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
